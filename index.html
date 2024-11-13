@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <!--
-    Name "Gee-Star" a play on movie "Dark Star"
+
+    Name "Get-Star" a play on movie "Dark Star"
     (get)* HTTP Get multiple search engines all in one together
-    (c) November 4 2024 William F. Gilreath (will@wfgilreath.xyz) All Rights Reserved.
+    (c) William F. Gilreath (will@wfgilreath.xyz) All Rights Reserved.
 
 -->
 
 <html lang="en">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>g-Star (get)*</title>
+    <title>Get-Star (get)*</title>
+
     <style>
 
         .center-screen {
@@ -131,8 +133,8 @@
     </style>
 </head>
 <body>
-<br>
-<div class="center-screen">
+<br/>
+<h3 class="center-screen">
     <table class="centerBackgroundWhite">
 
         <tbody>
@@ -152,7 +154,6 @@
         <tbody>
         <tr>
             <td>
-
                 <form id="form-get-star">
                     <label for="input-text"></label>
                     <input autofocus="" id="input-text" type="text" title="Get it search keywords"
@@ -164,136 +165,28 @@
                            title="Clear search keywords and close all search windows" class="get_star_close_button">
                 </form>
 
-                <script type="text/javascript">
-
-                    document.addEventListener("keypress", (e) => {
-                        let result = stopFormSubmission(e);
-                        if (result) e.preventDefault();
-                    });
-
-                    function stopFormSubmission(e) {
-                        let hasForm = false;
-                        if (e.key === "Enter") {
-                            e.composedPath().forEach((element) => {
-                                let elementId = element.getAttribute && element.getAttribute("id");
-                                if (elementId === "form-get-star") hasForm = true;
-                            });
-                        }
-
-                        return hasForm;
-                    }
-
-                    let idx = 0;
-                    const winArray = [];
-
-                    const getitButton = document.querySelector('#getit-button');
-                    let inputText = document.querySelector('#input-text');
-                    const closeButton = document.querySelector('#close-button')
-
-                    getitButton.addEventListener('click', clickGetItButton);
-                    closeButton.addEventListener('click', clickCloseButton);
-
-                    function clickCloseButton() {
-
-                        for (let i = 0; i < winArray.length; i++) {
-                            if (winArray[i] != null) {
-                                winArray[i].close();
-                                winArray[i] = null;
-                            }
-                        }
-
-                        inputText.value = '';
-                    }
-
-                    function clickGetItButton() {
-
-                        if (inputText.value === '') {
-                            alert("Empty search text!");
-                            return;
-                        }
-
-                        winArray[idx++] = window.open("https://www.dailymotion.com/search/" + inputText.value + "/videos", "_blank");
-
-                        winArray[idx++] = window.open("https://www.dogpile.com/serp?q=" + inputText.value + "", "_blank");
-
-                        winArray[idx++] = window.open("https://duckduckgo.com/?t=h_&q=" + inputText.value + "&ia=web", "_blank");
-
-                        winArray[idx++] = window.open("https://www.ecosia.org/search?method=index&q=" + inputText.value + "", "_blank");
-
-                        winArray[idx++] = window.open("https://epdf.pub/search/" + inputText.value + "", "_blank");
-
-                        winArray[idx++] = window.open("https://gibiru.com/results.html?q=" + inputText.value + "", "_blank");
-
-                        winArray[idx++] = window.open("https://search.gmx.com/web/result?q=" + inputText.value + "&origin=web&comp=web_serp_sf&p=gmx-com", "_blank");
-
-                        winArray[idx++] = window.open("https://good-search.org/en/search/?q=" + inputText.value + "&origin=home", "_blank");
-
-                        winArray[idx++] = window.open("https://iask.ai/?mode=question&q=" + inputText.value + "", "_blank");
-
-                        winArray[idx++] = window.open("https://imgur.com/search?q=" + inputText.value + "", "_blank");
-
-                        winArray[idx++] = window.open("https://www.mojeek.com/search?q=" + inputText.value + "", "_blank");
-
-                        winArray[idx++] = window.open("https://search-naver-com.translate.goog/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=" + inputText.value
-                            + "&_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en-US&_x_tr_pto=wapp", "_blank");
-
-                        winArray[idx++] = window.open("https://openverse.org/search?q=" + inputText.value + "", "_blank");
-
-                        winArray[idx++] = window.open("https://www.pdfdrive.to/top-" + inputText.value + "-books", "_blank");
-
-                        winArray[idx++] = window.open("https://www.reddit.com/search/?q=" + inputText.value + "", "_blank");
-
-                        winArray[idx++] = window.open("https://searchcode.com/?q=" + inputText.value + "", "_blank");
-
-                        winArray[idx++] = window.open("https://searx.be/search?q=" + inputText.value, "_blank");
-
-                        winArray[idx++] = window.open("https://slashdot.org/index2.pl?fhfilter=" + inputText.value + "", "_blank");
-
-                        winArray[idx++] = window.open("https://www.startpage.com/sp/search?query=" + inputText.value + "&cat=web&pl=opensearch", "_blank");
-
-                        winArray[idx++] = window.open("https://swisscows.com/en/web?query=" + inputText.value + "", "_blank");
-
-                        winArray[idx++] = window.open("https://www.usenetarchives.com/index.php?s=" + inputText.value + "&t=0&p=1", "_blank");
-
-                        winArray[idx++] = window.open("https://www.vinden.nl/search?q=" + inputText.value + "", "_blank");
-
-                        winArray[idx++] = window.open("https://search.visymo.com/wsa?q=" + inputText.value + "", "_blank");
-
-                        winArray[idx++] = window.open("https://en.wikipedia.org/w/index.php?search=" + inputText.value + "&ns0=1", "_blank");
-
-                        winArray[idx++] = window.open("https://yandex.com/search/?text=" + inputText.value + "", "_blank");
-
-                    }//end clickButton
-
+                <script>
                 </script>
             </td>
         </tr>
         </tbody>
     </table>
 
+    <noscript>
+        <br/><br/>
+        <p><b>Your web browser requires JavaScript to be enabled to use Get-Star (get)*!</b></p>
+    </noscript>
+
     <table class="centerBackgroundWhite">
         <tbody>
         <tr>
             <td>
                 <div class="footer">Copyright © 2024 William F. Gilreath. All Rights Reserved.</div>
+                <br/>
             </td>
         </tr>
         </tbody>
     </table>
-</div>
-
-<!-- Default Statcounter code for g-Star (get)* https://gstar-one.github.io/ -->
-<script type="text/javascript">
-var sc_project=13058665; 
-var sc_invisible=1; 
-var sc_security="0408cab7"; 
-</script>
-<script type="text/javascript"
-src="https://www.statcounter.com/counter/counter.js" async></script>
-<noscript><div class="statcounter"><a title="Web Analytics"
-href="https://statcounter.com/" target="_blank"><img class="statcounter"
-src="https://c.statcounter.com/13058665/0/0408cab7/1/" alt="Web Analytics"
-referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
-<!-- End of Statcounter Code -->
+</h3>
 </body>
 </html>
